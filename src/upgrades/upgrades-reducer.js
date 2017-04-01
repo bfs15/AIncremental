@@ -3,27 +3,33 @@ export default function () {
 	return [
 		{
 			id: 1,
-			first: "Bucky",
-			last: "Roberts",
-			age: 71,
-			description: "Bucky is a React developer and YouTuber",
-			thumbnail: "http://i.imgur.com/7yUvePI.jpg"
+			name: "Counting",
+			cost: 10,
+			description: "You understand concepts of counting"
 		},
 		{
 			id: 2,
-			first: "Joby",
-			last: "Wasilenko",
-			age: 27,
-			description: "Joby loves the Packers, cheese, and turtles.",
-			thumbnail: "http://i.imgur.com/52xRlm8.png"
+			name: "Cost analisis",
+			cost: 10,
+			description: "You understand how much you need for things"
 		},
 		{
 			id: 3,
-			first: "Madison",
-			last: "Williams",
-			age: 24,
-			description: "Madi likes her dog but it is really annoying.",
-			thumbnail: "http://i.imgur.com/4EMtxHB.png"
+			name: "Learning",
+			cost: 10,
+			description: "You understand how to keep thinking"
+		},
+		{
+			id: 4,
+			name: "Self inspection",
+			cost: 10,
+			description: "You understand your own parameters"
+		},
+		{
+			id: 5,
+			name: "Resource management",
+			cost: 10,
+			description: "You understand how much you are using for tasks"
 		}
 	]
 }

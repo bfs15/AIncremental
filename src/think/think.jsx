@@ -13,15 +13,18 @@ export default class Think extends React.Component {
 	}
 
 	render() {
-		var label = <span>&zwnj;</span>;
+		var label;
 
+		// change to if (this.props.counterEn) {
 		if (this.state.understandingN > 0) {
-			label = <span>Understanding: {this.state.understandingN}</span>;
+			label = "Understanding: " + this.state.understandingN;
+		} else {
+			label = '\u200D'; // invisible char
 		}
 
 		return (
 			<div>
-				{label}
+				<span>{label}</span>
 				<div>
 					<button onClick={this.onThink}>
 						Think
