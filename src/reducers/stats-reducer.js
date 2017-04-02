@@ -2,12 +2,12 @@
 const statsReducer = (state =  0, action) => {
 	switch (action.type) {
 		case 'UND_INC':
-			return state + action.payload;
-			break;
+			return state + action.value;
 
-		default:
-			return state;
+		case 'BUY_UPGRADE':
+			return state - action.upg.cost;
 	}
+	return state;
 }
 
 export default statsReducer;

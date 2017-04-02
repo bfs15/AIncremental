@@ -2,7 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import undInc from '../actions.js';
+import {undInc} from '../actions';
 import ThinkButton from '../components/think-button';
 
 class Think extends React.Component {

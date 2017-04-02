@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Think from '../containers/think';
+import UpgradesList from '../containers/upgrades-list';
 
 export default
 class App extends React.Component {
@@ -8,6 +9,7 @@ class App extends React.Component {
 		return (
 				<div>
 					<Think />
+					<UpgradesList />
 				</div>
 		);
 	}

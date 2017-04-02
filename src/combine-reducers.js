@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
 
 // import reducers
-import statsReducer from './reducers/stats-reducer.js';
-import upgradesReducer from './reducers/upgrades-reducer.js';
+import statsReducer from './reducers/stats-reducer';
+import upgradesReducer from './reducers/upgrades-reducer';
 
 const combinedReducers = combineReducers ({
 	stats: statsReducer,

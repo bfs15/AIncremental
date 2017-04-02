@@ -1,9 +1,15 @@
-
-const undInc = (qnt = 1) => {
+export
+const undInc = (value = 1) => {
 	return {
 		type: 'UND_INC',
-		payload: qnt
+		value
 	}
 }
 
-export default undInc;
+export
+const buyUpg = (upg) => {
+	return {
+		type: 'BUY_UPGRADE',
+		upg
+	}
+}

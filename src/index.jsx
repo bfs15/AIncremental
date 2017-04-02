@@ -5,12 +5,13 @@ import {Provider} from 'react-redux';
 
 require("./style.css");
 
-import combinedReducers from './combine-reducers.js'
+import combinedReducers from './combine-reducers'
+import App from './components/app';
 
-import App from './components/app.jsx';
+const store = createStore(combinedReducers);
 
 render(
-	<Provider store={createStore(combinedReducers)}>
+	<Provider store={store}>
 		<App/>
 	</Provider>,
 	document.getElementById('root')
