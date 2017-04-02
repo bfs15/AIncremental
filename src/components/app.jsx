@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Think from '../think/think.jsx';
+import Think from '../containers/think';
 
-export default class App extends React.Component {
+export default
+class App extends React.Component {
 	render () {
 		return (
 				<div>

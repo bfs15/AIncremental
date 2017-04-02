@@ -1,5 +1,5 @@
 
-export default function () {
+const upgradesReducer = () => {
 	return [
 		{
 			id: 1,
@@ -31,5 +31,23 @@ export default function () {
 			cost: 10,
 			description: "You understand how much you are using for tasks"
 		}
-	]
+	];
 }
+
+export default upgradesReducer;
+
+
+
+// const upgradesReducer = (state, action) => {
+// 	switch (action.type) {
+// 		case 'UND_INC':
+// 			// check for unlockable upgrades, add to visible, maybe use a filter idk
+// 			return state;
+// 			break;
+//
+// 		default:
+// 			return state;
+// 	}
+// }
+//
+// export default upgradesReducer;

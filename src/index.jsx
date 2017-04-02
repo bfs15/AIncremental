@@ -1,14 +1,17 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
 require("./style.css");
 
-import {allReducers} from './all-reducers.js'
+import combinedReducers from './combine-reducers.js'
 
-import App from './app/app.jsx';
+import App from './components/app.jsx';
 
-
-const store = createStore(allReducers);
-
-render(<App/>, document.getElementById('root'));
+render(
+	<Provider store={createStore(combinedReducers)}>
+		<App/>
+	</Provider>,
+	document.getElementById('root')
+);
