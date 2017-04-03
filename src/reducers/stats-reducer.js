@@ -1,13 +1,38 @@
 
-const statsReducer = (state =  0, action) => {
-	switch (action.type) {
-		case 'UND_INC':
-			return state + action.value;
+const statsReducer = (state = { und: 0, clicks: 0 }, action) => {
+	var newStats = state;
 
-		case 'BUY_UPGRADE':
-			return state - action.upg.cost;
+	switch (action.type) {
+		case 'UND_CLICK':
+			newStats = {
+				...newStats,
+				clicks: state.clicks + 1
+			}
+			// continue to UND_INC
+		case 'UND_INC':
+			var newUnd = state.und + action.value;
+
+			newStats = {
+				...newStats,
+				und: newUnd,
+				undInt: Math.round(newUnd)
+			}
+
+			break;
+
+		case 'UPGRADE_BUY':
+			var newUnd = state.und - action.upg.cost;
+
+			newStats = {
+				...newStats,
+				und: newUnd,
+				undInt: Math.round(newUnd)
+			}
+
+			break;
 	}
-	return state;
+
+	return newStats;
 }
 
 export default statsReducer;
