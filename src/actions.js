@@ -1,3 +1,12 @@
+
+export
+const undClick = (value = 1) => {
+	return {
+		type: 'UND_CLICK',
+		value
+	}
+}
+
 export
 const undInc = (value = 1) => {
 	return {
@@ -7,9 +16,17 @@ const undInc = (value = 1) => {
 }
 
 export
-const buyUpg = (upg) => {
+const upgBuy = (upg) => {
 	return {
-		type: 'BUY_UPGRADE',
+		type: 'UPGRADE_BUY',
+		upg
+	}
+}
+
+export
+const upgActivate = (upg) => {
+	return {
+		type: 'UPGRADE_ACTIVATE',
 		upg
 	}
 }

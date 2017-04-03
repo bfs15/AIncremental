@@ -2,7 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {buyUpg} from '../actions';
+import {upgBuy} from '../actions';
 import UpgradeItem from '../components/upgrade-item';
 
 const getVisibleUpgrades = (upgrades, value) => {
@@ -22,7 +22,7 @@ class upgradesList extends React.Component {
 			}
 
 			return (
-				<UpgradeItem key={upg.id} upg={upg} enabled={enabled} onClick={ () => this.props.buyUpg(upg) }/>
+				<UpgradeItem key={upg.id} upg={upg} enabled={enabled} onClick={ () => this.props.upgBuy(upg) }/>
 			);
 		});
 
@@ -42,7 +42,7 @@ const mapStateToProps = (state) => {
 }
 
 const matchDispatchToProps = (dispatch) => {
-	return bindActionCreators({buyUpg: buyUpg}, dispatch);
+	return bindActionCreators({upgBuy: upgBuy}, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(upgradesList);
