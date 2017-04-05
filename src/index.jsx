@@ -1,55 +1,56 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-require("./style.css");
-
-import combinedReducers from './combine-reducers'
+import combinedReducers from './combine-reducers';
 import App from './components/app';
-import {undInc} from './actions';
+import { undInc } from './actions';
 
+require('./style.css');
+
+/* eslint-disable no-underscore-dangle */
 const store = createStore(
-	combinedReducers,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  combinedReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
+/* eslint-enable */
 
 render(
-	<Provider store={store}>
-		<App/>
-	</Provider>,
-	document.getElementById('root')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
 );
 
-let ms = 1000;
+const ms = 1000;
 
 // loops per second
-let gameRate = 20;
+const gameRate = 20;
 
 // interval between a loop and the next in ms
-let freqMs = ms/gameRate;
+const freqMs = ms / gameRate; // something short
 // is seconds
-let freq = 1/gameRate;
+const freq = 1 / gameRate;
 
 // temporaty und per second
-var undRate = 1;
+const undRate = 1;
 
-//somewhere when you app starts
-setInterval(()=> {
-  var state = store.getState();
+// somewhere when you app starts
+setInterval(() => {
+  const state = store.getState();
 
   // let actions = calculate_pending_actions(store.getState());
   // actions.forEach(store.dispatch);
 
-  store.dispatch(undInc(undRate*freq));
+  store.dispatch(undInc(undRate * freq));
+}, freqMs);
 
-}, freqMs); // something short
-
-function calculate_pending_actions (state) {
-  let { timer } = state;
-  let actions = [];
+function calculate_pending_actions(state) {
+  const { timer } = state;
+  const actions = [];
   // put all your conditions here...
-  if (timer.started && (new Date()).getTime() - timer.startedOn > 60*1000) {
+  if (timer.started && (new Date()).getTime() - timer.startedOn > 60 * 1000) {
     actions.push(stop());
   }
   // etc...
