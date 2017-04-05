@@ -16,12 +16,19 @@ class Think extends React.Component {
     }
 
     return (
-      <div>
-        <ThinkButton label={label} onClick={() => this.props.undClick()} />
-      </div>
+      <ThinkButton
+        label={label}
+        onClick={() => this.props.undClick()}
+      />
     );
   }
 }
+
+// TODO
+Think.propTypes = {
+  // undInt: React.PropTypes..isRequired,
+  // clicks: React.PropTypes..isRequired,
+};
 
 const mapStateToProps = (state) => (
   {

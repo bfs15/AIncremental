@@ -18,9 +18,11 @@ const UpgradeItem = ({ upg, enabled, onClick }) => {
   );
 };
 
-UpgradeItem.propTypes = {
-  enabled: React.PropTypes.bool.isRequired,
-  onClick: React.PropTypes.func.isRequired,
-};
+// TODO
+// UpgradeItem.propTypes = {
+//   // upg: React.PropTypes..isRequired,
+//   enabled: React.PropTypes.bool.isRequired,
+//   onClick: React.PropTypes.func.isRequired,
+// };
 
 export default UpgradeItem;

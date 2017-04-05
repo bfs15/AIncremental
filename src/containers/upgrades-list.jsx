@@ -42,9 +42,15 @@ class upgradesList extends React.Component {
 const mapStateToProps = (state) => (
   {
     und: state.stats.und,
-    upgrades: state.upgrades
+    upgrades: state.upgrades,
   }
 );
+
+// TODO
+upgradesList.propTypes = {
+  // und: React.PropTypes..isRequired,
+  // upgrades: React.PropTypes..isRequired,
+};
 
 const matchDispatchToProps = (dispatch) => (
   bindActionCreators({ upgBuy }, dispatch)
