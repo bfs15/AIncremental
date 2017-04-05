@@ -4,7 +4,7 @@ import upgradesList from '../data/upgrades';
 import upgradeReducer from './upgrade-reducer';
 
 const upgradesReducer = (state = upgradesList, action) => {
-  let newState;
+  let newState = state;
 
   switch (action.type) {
     case 'UPGRADE_BUY':
@@ -20,7 +20,6 @@ const upgradesReducer = (state = upgradesList, action) => {
       break;
 
     default:
-      break;
   }
   return newState;
 };

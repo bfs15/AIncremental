@@ -33,8 +33,6 @@ const statsReducer = (state = { und: 0, clicks: 0 }, action) => {
       break;
 
     default:
-      break;
-
   }
 
   return newStats;

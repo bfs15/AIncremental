@@ -41,7 +41,7 @@ class upgradesList extends React.Component {
 
 const mapStateToProps = (state) => (
   {
-    und: state.stats,
+    und: state.stats.und,
     upgrades: state.upgrades
   }
 );
