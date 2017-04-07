@@ -9,6 +9,9 @@ class App extends React.Component {
     return (
       <div>
         <Think />
+
+        <hr />
+
         <UpgradesList />
       </div>
     );

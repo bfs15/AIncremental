@@ -2,6 +2,8 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { Panel } from 'react-bootstrap';
+
 import { upgBuy } from '../actions';
 import UpgradeItem from '../components/upgrade-item';
 
@@ -13,6 +15,10 @@ const getVisibleUpgrades = (upgrades, value) => (
 
 class upgradesList extends React.Component {
   render() {
+    const title = (
+      <h2>Upgrades</h2>
+    );
+
     const upgradeItems =
     getVisibleUpgrades(this.props.upgrades, 1.25 * this.props.und)
     .map((upg) => {
@@ -33,7 +39,9 @@ class upgradesList extends React.Component {
 
     return (
       <div>
-        {upgradeItems}
+        <Panel header={title}>
+          {upgradeItems}
+        </Panel>
       </div>
     );
   }

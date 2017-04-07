@@ -1,20 +1,27 @@
 import React from 'react';
+import { Button, Tooltip, OverlayTrigger, Glyphicon } from 'react-bootstrap';
 
 const UpgradeItem = ({ upg, enabled, onClick }) => {
-  let disabled = 'true';
+  let disabled = true;
   if (enabled) {
-    disabled = null;
+    disabled = false;
   }
 
-  return (
-    <div>
+  const tooltip = (
+    <Tooltip id="tooltip">
+      <strong>{upg.name}</strong>{`: ${upg.cost}`}
       <div>
-        <button disabled={disabled} onClick={onClick}>
-          {upg.name} {upg.cost}
-        </button>
+        {upg.description}
       </div>
-      <span>{upg.description}</span>
-    </div>
+    </Tooltip>
+  );
+
+  return (
+    <OverlayTrigger placement="top" overlay={tooltip}>
+      <Button disabled={disabled} onClick={onClick}>
+        <Glyphicon glyph={`glyphicon glyphicon-${upg.icon}`}/>
+      </Button>
+    </OverlayTrigger>
   );
 };
 

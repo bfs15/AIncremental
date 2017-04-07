@@ -1,12 +1,13 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 const ThinkButton = ({ label, onClick }) => (
   <div>
-    <span>{label}</span>
+    <h2>{label}</h2>
     <div>
-      <button onClick={onClick}>
+      <Button onClick={onClick}>
         Think
-      </button>
+      </Button>
     </div>
   </div>
 );
