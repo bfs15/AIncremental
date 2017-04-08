@@ -5,8 +5,8 @@ import statsReducer from './stats-reducer';
 import upgradesReducer from './upgrades-reducer';
 
 const rootReducer = combineReducers({
-  stats: statsReducer,
-  upgrades: upgradesReducer,
+	stats: statsReducer,
+	upgrades: upgradesReducer,
 });
 
 export default rootReducer;

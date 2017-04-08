@@ -1,12 +1,12 @@
 body {
-  margin     : 30px !important;
+	margin     : 30px !important;
 }
 
 * {
-  background : rgb(40, 40, 40) !important;
-  color : #c3c3c3 !important;
+	background : rgb(40, 40, 40) !important;
+	color : #c3c3c3 !important;
 }
 
 .btn:focus,.btn:active {
-   outline: none !important;
+	 outline: none !important;
 }

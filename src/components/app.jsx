@@ -4,13 +4,13 @@ import Think from '../containers/think';
 import UpgradesList from '../containers/upgrades-list';
 
 const App = () => (
-  <div>
-    <Think />
+	<div>
+		<Think />
 
-    <hr />
+		<hr />
 
-    <UpgradesList />
-  </div>
+		<UpgradesList />
+	</div>
 );
 
 export default App;
