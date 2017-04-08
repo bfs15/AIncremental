@@ -9,11 +9,9 @@ import { intelligenceInc } from './actions';
 
 require('./style.css');
 
-/* eslint-disable no-underscore-dangle */
 const store = createStore(
   rootReducer
 );
-/* eslint-enable */
 
 render(
   <Provider store={store}>
