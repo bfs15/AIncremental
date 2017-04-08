@@ -3,15 +3,15 @@ import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import combinedReducers from './combine-reducers';
+import rootReducer from './reducers/root-reducer';
 import App from './components/app';
-import { undInc } from './actions';
+import { intelligenceInc } from './actions';
 
 require('./style.css');
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
-  combinedReducers,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 /* eslint-enable */
@@ -33,8 +33,8 @@ const freqMs = ms / gameRate; // something short
 // is seconds
 const freq = 1 / gameRate;
 
-// temporaty und per second
-const undRate = 1;
+// temporaty intelligence per second
+const intelligenceRate = 1;
 
 // somewhere when you app starts
 setInterval(() => {
@@ -43,7 +43,7 @@ setInterval(() => {
   // let actions = calculate_pending_actions(store.getState());
   // actions.forEach(store.dispatch);
 
-  store.dispatch(undInc(undRate * freq));
+  store.dispatch(intelligenceInc(intelligenceRate * freq));
 }, freqMs);
 
 function calculate_pending_actions(state) {

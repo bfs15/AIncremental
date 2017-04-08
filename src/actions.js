@@ -1,16 +1,16 @@
 
 export
-const undClick = (value = 1) => (
+const thinkClick = (value = 1) => (
   {
-    type: 'UND_CLICK',
+    type: 'THINK_CLICK',
     value,
   }
 );
 
 export
-const undInc = (value = 1) => (
+const intelligenceInc = (value = 1) => (
   {
-    type: 'UND_INC',
+    type: 'INTELLIGENCE_INC',
     value,
   }
 );

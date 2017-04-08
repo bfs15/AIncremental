@@ -1,17 +1,15 @@
 
-const upgradeReducer = (state, action) => {
-  let upg = state;
-
+const upgradeReducer = (upgrade, action) => {
   switch (action.type) {
     case 'UPGRADE_BUY':
-      upg = {
-        ...upg,
+      upgrade = {
+        ...upgrade,
         owned: true,
       };
-      // falls through to UPGRADE_ACTIVATE
+      // falls through
     case 'UPGRADE_ACTIVATE':
-      upg = {
-        ...upg,
+      upgrade = {
+        ...upgrade,
         active: true,
       };
 
@@ -19,7 +17,7 @@ const upgradeReducer = (state, action) => {
     default:
   }
 
-  return upg;
+  return upgrade;
 };
 
 export default upgradeReducer;

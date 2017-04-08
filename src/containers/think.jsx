@@ -2,14 +2,14 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { undClick } from '../actions';
+import { thinkClick } from '../actions';
 import ThinkButton from '../components/think-button';
 
 class Think extends React.Component {
   getLabel() {
     let label;
     if (this.props.upgs[0].active) {
-      label = `Understanding: ${this.props.undInt} Clicks: ${this.props.clicks}`;
+      label = `Understanding: ${this.props.intelligenceRounded} Clicks: ${this.props.clicks}`;
     } else {
       label = '\u200D'; // invisible char
     }
@@ -21,7 +21,7 @@ class Think extends React.Component {
     return (
       <ThinkButton
         label={this.getLabel()}
-        onClick={() => this.props.undClick()}
+        onClick={() => this.props.thinkClick()}
       />
     );
   }
@@ -30,20 +30,20 @@ class Think extends React.Component {
 // TODO
 /* eslint react/prop-types: 0 */
 Think.propTypes = {
-  // undInt: React.PropTypes..isRequired,
+  // intelligenceRounded: React.PropTypes..isRequired,
   // clicks: React.PropTypes..isRequired,
 };
 
 const mapStateToProps = (state) => (
   {
-    undInt: state.stats.undInt,
+    intelligenceRounded: state.stats.intelligenceRounded,
     clicks: state.stats.clicks,
     upgs: state.upgrades,
   }
 );
 
 const matchDispatchToProps = (dispatch) => (
-  bindActionCreators({ undClick }, dispatch)
+  bindActionCreators({ thinkClick }, dispatch)
 );
 
 export default connect(mapStateToProps, matchDispatchToProps)(Think);

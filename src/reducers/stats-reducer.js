@@ -1,41 +1,39 @@
 
-const statsReducer = (state = { und: 0, clicks: 0 }, action) => {
-  let newStats = state;
-  let newUnd;
+const updateIntelligence = (state, newIntelligence) => (
+  {
+    ...state,
+    intelligence: newIntelligence,
+    intelligenceRounded: Math.round(newIntelligence),
+  }
+);
+
+const statsReducer = (state = { intelligence: 0, clicks: 0 }, action) => {
+  let newIntelligence;
 
   switch (action.type) {
-    case 'UND_CLICK':
-      newStats = {
-        ...newStats,
+    case 'THINK_CLICK':
+      state = {
+        ...state,
         clicks: state.clicks + 1,
       };
-      // falls through to UND_INC
-    case 'UND_INC':
-      newUnd = state.und + action.value;
-
-      newStats = {
-        ...newStats,
-        und: newUnd,
-        undInt: Math.round(newUnd),
-      };
+      // falls through
+    case 'INTELLIGENCE_INC':
+      newIntelligence = state.intelligence + action.value;
+      state = updateIntelligence(state, newIntelligence);
 
       break;
 
-    case 'UPGRADE_BUY':
-      newUnd = state.und - action.upg.cost;
 
-      newStats = {
-        ...newStats,
-        und: newUnd,
-        undInt: Math.round(newUnd),
-      };
+    case 'UPGRADE_BUY':
+      newIntelligence = state.intelligence - action.upg.cost;
+      state = updateIntelligence(state, newIntelligence);
 
       break;
 
     default:
   }
 
-  return newStats;
+  return state;
 };
 
 export default statsReducer;

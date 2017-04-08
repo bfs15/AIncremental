@@ -19,12 +19,12 @@ const title = () => (
 
 class upgradesList extends React.Component {
   upgradeItems() {
-    return getVisibleUpgrades(this.props.upgrades, 1.25 * this.props.und)
+    return getVisibleUpgrades(this.props.upgrades, 1.25 * this.props.intelligence)
       .map((upg) => (
         <UpgradeItem
           key={upg.id}
           upg={upg}
-          enabled={this.props.und >= upg.cost}
+          enabled={this.props.intelligence >= upg.cost}
           onClick={() => this.props.upgBuy(upg)}
         />
       ));
@@ -44,13 +44,13 @@ class upgradesList extends React.Component {
 // TODO
 /* eslint react/prop-types: 0 */
 upgradesList.propTypes = {
-  // und: React.PropTypes..isRequired,
+  // intelligence: React.PropTypes..isRequired,
   // upgrades: React.PropTypes..isRequired,
 };
 
 const mapStateToProps = (state) => (
   {
-    und: state.stats.und,
+    intelligence: state.stats.intelligence,
     upgrades: state.upgrades,
   }
 );

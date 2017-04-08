@@ -3,14 +3,12 @@ import upgradesList from '../data/upgrades';
 
 import upgradeReducer from './upgrade-reducer';
 
-const upgradesReducer = (state = upgradesList, action) => {
-  let newState = state;
-
+const upgradesReducer = (upgrades = upgradesList, action) => {
   switch (action.type) {
     case 'UPGRADE_BUY':
       // falls through
     case 'UPGRADE_ACTIVATE':
-      newState = state.map((upg) => {
+      upgrades = upgrades.map((upg) => {
         if (upg.id !== action.upg.id) {
           return upg;
         }
@@ -21,7 +19,7 @@ const upgradesReducer = (state = upgradesList, action) => {
 
     default:
   }
-  return newState;
+  return upgrades;
 };
 
 export default upgradesReducer;
