@@ -16,9 +16,9 @@ const upgradesReducer = (upgrades = upgradesList, action) => {
       });
 
       break;
-
     default:
   }
+
   return upgrades;
 };
 

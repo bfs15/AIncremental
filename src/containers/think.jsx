@@ -2,27 +2,60 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { thinkClick } from '../actions';
-import ThinkButton from '../components/think-button';
+import { Button } from 'react-bootstrap';
+
+import { thinkClick, intelligenceCommit } from '../actions';
 
 class Think extends React.Component {
-  getLabel() {
-    let label;
-    if (this.props.upgs[0].active) {
-      label = `Understanding: ${this.props.intelligenceRounded} Clicks: ${this.props.clicks}`;
-    } else {
-      label = '\u200D'; // invisible char
+  information() {
+    let commitCounter = '\u200D';
+    let intelligenceCounter = '\u200D';
+
+    if (this.props.upgrades[2].active) {
+      commitCounter = `Commited: ${this.props.intelligenceCommited}`;
     }
 
-    return label;
+    if (this.props.upgrades[0].active) {
+      intelligenceCounter = `Understanding: ${this.props.intelligenceRounded}`;
+    }
+
+    return (
+      <div>
+        {intelligenceCounter}
+        <div>
+          {commitCounter}
+        </div>
+      </div>
+    );
+  }
+
+  commitButton() {
+    if (this.props.upgrades[2].active) {
+      return (
+        <Button
+          onClick={() => this.props.intelligenceCommit(this.props.intelligenceRounded)}
+        >
+          Commit
+        </Button>
+      );
+    }
+
+    return null;
   }
 
   render() {
     return (
-      <ThinkButton
-        label={this.getLabel()}
-        onClick={() => this.props.thinkClick()}
-      />
+      <div>
+        <h2>{this.information()}</h2>
+        <div>
+          <Button
+            onClick={() => this.props.thinkClick()}
+          >
+            Think
+          </Button>
+          {this.commitButton()}
+        </div>
+      </div>
     );
   }
 }
@@ -31,19 +64,21 @@ class Think extends React.Component {
 /* eslint react/prop-types: 0 */
 Think.propTypes = {
   // intelligenceRounded: React.PropTypes..isRequired,
-  // clicks: React.PropTypes..isRequired,
+  // clicksTotal: React.PropTypes..isRequired,
 };
 
 const mapStateToProps = (state) => (
   {
     intelligenceRounded: state.stats.intelligenceRounded,
-    clicks: state.stats.clicks,
-    upgs: state.upgrades,
+    intelligenceTotal: state.stats.intelligenceTotal,
+    intelligenceCommited: state.stats.intelligenceCommited,
+    clicksTotal: state.stats.clicksTotal,
+    upgrades: state.upgrades,
   }
 );
 
 const matchDispatchToProps = (dispatch) => (
-  bindActionCreators({ thinkClick }, dispatch)
+  bindActionCreators({ thinkClick, intelligenceCommit }, dispatch)
 );
 
 export default connect(mapStateToProps, matchDispatchToProps)(Think);

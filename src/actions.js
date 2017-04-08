@@ -30,3 +30,11 @@ const upgActivate = (upg) => (
     upg,
   }
 );
+
+export
+const intelligenceCommit = (amount) => (
+  {
+    type: 'INTELLIGENCE_COMMIT',
+    amount,
+  }
+);

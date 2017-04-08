@@ -14,7 +14,8 @@ const getVisibleUpgrades = (upgrades, value) => (
 );
 
 const title = () => (
-  <h2>Upgrades</h2>
+  null
+  // <h2>Upgrades</h2> // show on labeling upgrade
 );
 
 class upgradesList extends React.Component {
@@ -25,6 +26,7 @@ class upgradesList extends React.Component {
           key={upg.id}
           upg={upg}
           enabled={this.props.intelligence >= upg.cost}
+          showCost={this.props.upgrades[1].active}
           onClick={() => this.props.upgBuy(upg)}
         />
       ));

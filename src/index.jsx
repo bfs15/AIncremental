@@ -33,26 +33,23 @@ const freqMs = ms / gameRate; // something short
 // is seconds
 const freq = 1 / gameRate;
 
-// temporaty intelligence per second
-const intelligenceRate = 1;
-
 // somewhere when you app starts
 setInterval(() => {
   const state = store.getState();
 
-  // let actions = calculate_pending_actions(store.getState());
+  // let actions = calculatePendingActions(store.getState());
   // actions.forEach(store.dispatch);
 
-  store.dispatch(intelligenceInc(intelligenceRate * freq));
+  store.dispatch(intelligenceInc(freq * (state.stats.intelligenceCommited / 100)));
 }, freqMs);
 
-function calculate_pending_actions(state) {
-  const { timer } = state;
-  const actions = [];
-  // put all your conditions here...
-  if (timer.started && (new Date()).getTime() - timer.startedOn > 60 * 1000) {
-    actions.push(stop());
-  }
-  // etc...
-  return actions;
-}
+// function calculatePendingActions(state) {
+//   const { timer } = state;
+//   const actions = [];
+//   // put all your conditions here...
+//   if (timer.started && (new Date()).getTime() - timer.startedOn > 60 * 1000) {
+//     actions.push(stop());
+//   }
+//   // etc...
+//   return actions;
+// }
