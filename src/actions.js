@@ -1,32 +1,40 @@
 
 export
-const undClick = (value = 1) => {
-	return {
-		type: 'UND_CLICK',
-		value
-	}
-}
+const thinkClick = (value = 1) => (
+  {
+    type: 'THINK_CLICK',
+    value,
+  }
+);
 
 export
-const undInc = (value = 1) => {
-	return {
-		type: 'UND_INC',
-		value
-	}
-}
+const intelligenceInc = (value = 1) => (
+  {
+    type: 'INTELLIGENCE_INC',
+    value,
+  }
+);
 
 export
-const upgBuy = (upg) => {
-	return {
-		type: 'UPGRADE_BUY',
-		upg
-	}
-}
+const upgBuy = (upg) => (
+  {
+    type: 'UPGRADE_BUY',
+    upg,
+  }
+);
 
 export
-const upgActivate = (upg) => {
-	return {
-		type: 'UPGRADE_ACTIVATE',
-		upg
-	}
-}
+const upgActivate = (upg) => (
+  {
+    type: 'UPGRADE_ACTIVATE',
+    upg,
+  }
+);
+
+export
+const intelligenceCommit = (amount) => (
+  {
+    type: 'INTELLIGENCE_COMMIT',
+    amount,
+  }
+);

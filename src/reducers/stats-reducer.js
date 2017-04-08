@@ -1,38 +1,55 @@
 
-const statsReducer = (state = { und: 0, clicks: 0 }, action) => {
-	var newStats = state;
+import statsInit from '../data/stats';
 
-	switch (action.type) {
-		case 'UND_CLICK':
-			newStats = {
-				...newStats,
-				clicks: state.clicks + 1
-			}
-			// continue to UND_INC
-		case 'UND_INC':
-			var newUnd = state.und + action.value;
+const statsReducer = (stats = statsInit, action) => {
+  let newIntelligence;
 
-			newStats = {
-				...newStats,
-				und: newUnd,
-				undInt: Math.round(newUnd)
-			}
+  switch (action.type) {
+    case 'THINK_CLICK':
+      stats = {
+        ...stats,
+        clicksTotal: stats.clicksTotal + 1,
+      };
+      // falls through
+    case 'INTELLIGENCE_INC':
+      newIntelligence = stats.intelligence + action.value;
 
-			break;
+      stats = {
+        ...stats,
+        intelligenceTotal: stats.intelligenceTotal + action.value,
+        intelligence: newIntelligence,
+        intelligenceRounded: Math.round(newIntelligence),
+      };
 
-		case 'UPGRADE_BUY':
-			var newUnd = state.und - action.upg.cost;
+      break;
 
-			newStats = {
-				...newStats,
-				und: newUnd,
-				undInt: Math.round(newUnd)
-			}
 
-			break;
-	}
+    case 'UPGRADE_BUY':
+      newIntelligence = stats.intelligence - action.upg.cost;
+      stats = {
+        ...stats,
+        intelligence: newIntelligence,
+        intelligenceRounded: Math.round(newIntelligence),
+      };
 
-	return newStats;
-}
+      break;
+
+
+    case 'INTELLIGENCE_COMMIT':
+      newIntelligence = stats.intelligence - action.amount;
+
+      stats = {
+        ...stats,
+        intelligenceCommited: stats.intelligenceCommited + action.amount,
+        intelligence: newIntelligence,
+        intelligenceRounded: Math.round(newIntelligence),
+      };
+
+      break;
+    default:
+  }
+
+  return stats;
+};
 
 export default statsReducer;

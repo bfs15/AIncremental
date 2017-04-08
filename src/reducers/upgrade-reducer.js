@@ -1,24 +1,23 @@
 
-const upgradeReducer = (state, action) => {
-	var upg = state;
+const upgradeReducer = (upgrade, action) => {
+  switch (action.type) {
+    case 'UPGRADE_BUY':
+      upgrade = {
+        ...upgrade,
+        owned: true,
+      };
+      // falls through
+    case 'UPGRADE_ACTIVATE':
+      upgrade = {
+        ...upgrade,
+        active: true,
+      };
 
-	switch (action.type) {
-		case 'UPGRADE_BUY':
-			upg = {
-				...upg,
-				owned: true
-			};
-			// continue to UPGRADE_ACTIVATE
-		case 'UPGRADE_ACTIVATE':
-			upg = {
-				...upg,
-				active: true
-			};
+      break;
+    default:
+  }
 
-			break;
-	}
-
-	return upg;
-}
+  return upgrade;
+};
 
 export default upgradeReducer;
