@@ -10,14 +10,14 @@ import { intelligenceInc } from './actions';
 require('./style.css');
 
 const store = createStore(
-  rootReducer
+	rootReducer,
 );
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root'),
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('root'),
 );
 
 const ms = 1000;
@@ -32,12 +32,13 @@ const freq = 1 / gameRate;
 
 // somewhere when you app starts
 setInterval(() => {
-  const state = store.getState();
+	const state = store.getState();
 
-  // let actions = calculatePendingActions(store.getState());
-  // actions.forEach(store.dispatch);
+	// let actions = calculatePendingActions(store.getState());
+	// actions.forEach(store.dispatch);
 
-  store.dispatch(intelligenceInc(freq * (state.stats.intelligenceCommited / 100)));
+	store.dispatch(
+		intelligenceInc(freq * (state.stats.intelligenceCommited / 100)));
 }, freqMs);
 
 // function calculatePendingActions(state) {
