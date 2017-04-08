@@ -3,17 +3,14 @@ import React from 'react';
 import Think from '../containers/think';
 import UpgradesList from '../containers/upgrades-list';
 
-export default
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Think />
+const App = () => (
+  <div>
+    <Think />
 
-        <hr />
+    <hr />
 
-        <UpgradesList />
-      </div>
-    );
-  }
-}
+    <UpgradesList />
+  </div>
+);
+
+export default App;

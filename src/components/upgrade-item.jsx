@@ -19,13 +19,14 @@ const UpgradeItem = ({ upg, enabled, onClick }) => {
   return (
     <OverlayTrigger placement="top" overlay={tooltip}>
       <Button disabled={disabled} onClick={onClick}>
-        <Glyphicon glyph={`glyphicon glyphicon-${upg.icon}`}/>
+        <Glyphicon glyph={`glyphicon glyphicon-${upg.icon}`} />
       </Button>
     </OverlayTrigger>
   );
 };
 
 // TODO
+/* eslint react/prop-types: 0 */
 // UpgradeItem.propTypes = {
 //   // upg: React.PropTypes..isRequired,
 //   enabled: React.PropTypes.bool.isRequired,

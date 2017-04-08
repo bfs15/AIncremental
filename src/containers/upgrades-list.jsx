@@ -13,39 +13,40 @@ const getVisibleUpgrades = (upgrades, value) => (
   ))
 );
 
+const title = () => (
+  <h2>Upgrades</h2>
+);
+
 class upgradesList extends React.Component {
-  render() {
-    const title = (
-      <h2>Upgrades</h2>
-    );
-
-    const upgradeItems =
-    getVisibleUpgrades(this.props.upgrades, 1.25 * this.props.und)
-    .map((upg) => {
-      let enabled = false;
-      if (this.props.und >= upg.cost) {
-        enabled = true;
-      }
-
-      return (
+  upgradeItems() {
+    return getVisibleUpgrades(this.props.upgrades, 1.25 * this.props.und)
+      .map((upg) => (
         <UpgradeItem
           key={upg.id}
           upg={upg}
-          enabled={enabled}
+          enabled={this.props.und >= upg.cost}
           onClick={() => this.props.upgBuy(upg)}
         />
-      );
-    });
+      ));
+  }
 
+  render() {
     return (
       <div>
-        <Panel header={title}>
-          {upgradeItems}
+        <Panel header={title()}>
+          {this.upgradeItems()}
         </Panel>
       </div>
     );
   }
 }
+
+// TODO
+/* eslint react/prop-types: 0 */
+upgradesList.propTypes = {
+  // und: React.PropTypes..isRequired,
+  // upgrades: React.PropTypes..isRequired,
+};
 
 const mapStateToProps = (state) => (
   {
@@ -53,12 +54,6 @@ const mapStateToProps = (state) => (
     upgrades: state.upgrades,
   }
 );
-
-// TODO
-upgradesList.propTypes = {
-  // und: React.PropTypes..isRequired,
-  // upgrades: React.PropTypes..isRequired,
-};
 
 const matchDispatchToProps = (dispatch) => (
   bindActionCreators({ upgBuy }, dispatch)

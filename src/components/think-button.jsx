@@ -13,6 +13,7 @@ const ThinkButton = ({ label, onClick }) => (
 );
 
 // TODO
+/* eslint react/prop-types: 0 */
 ThinkButton.propTypes = {
   // label: React.PropTypes..isRequired,
   onClick: React.PropTypes.func.isRequired,
