@@ -46,7 +46,6 @@ const statsReducer = (stats = statsInit, action) => {
       };
 
       break;
-    default:
   }
 
   return stats;

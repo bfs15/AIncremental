@@ -33,7 +33,9 @@ class Think extends React.Component {
     if (this.props.upgrades[2].active) {
       return (
         <Button
-          onClick={() => this.props.intelligenceCommit(this.props.intelligenceRounded)}
+          onClick={() =>
+            this.props.intelligenceCommit(this.props.intelligenceRounded)
+          }
         >
           Commit
         </Button>
@@ -59,13 +61,6 @@ class Think extends React.Component {
     );
   }
 }
-
-// TODO
-/* eslint react/prop-types: 0 */
-Think.propTypes = {
-  // intelligenceRounded: React.PropTypes..isRequired,
-  // clicksTotal: React.PropTypes..isRequired,
-};
 
 const mapStateToProps = (state) => (
   {

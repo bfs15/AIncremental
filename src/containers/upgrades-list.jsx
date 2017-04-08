@@ -7,9 +7,10 @@ import { Panel } from 'react-bootstrap';
 import { upgBuy } from '../actions';
 import UpgradeItem from '../components/upgrade-item';
 
-const getVisibleUpgrades = (upgrades, value) => (
+const visibleUpgrades = (upgrades, threshold) => (
+  // returns upgrades if you could buy them with 'threshold' && they are not owned
   upgrades.filter((upg) => (
-    !upg.owned && value >= upg.cost
+    upg.cost <= threshold && !upg.owned
   ))
 );
 
@@ -20,8 +21,9 @@ const title = () => (
 
 class upgradesList extends React.Component {
   upgradeItems() {
-    return getVisibleUpgrades(this.props.upgrades, 1.25 * this.props.intelligence)
-      .map((upg) => (
+    // TODO: change 1.25 to a value increased by a "foresight" upgrade
+    return visibleUpgrades(this.props.upgrades, 1.25 * this.props.intelligence)
+      .map((upg, i) => (
         <UpgradeItem
           key={upg.id}
           upg={upg}
@@ -42,13 +44,6 @@ class upgradesList extends React.Component {
     );
   }
 }
-
-// TODO
-/* eslint react/prop-types: 0 */
-upgradesList.propTypes = {
-  // intelligence: React.PropTypes..isRequired,
-  // upgrades: React.PropTypes..isRequired,
-};
 
 const mapStateToProps = (state) => (
   {

@@ -8,7 +8,7 @@ const upgradesReducer = (upgrades = upgradesList, action) => {
     case 'UPGRADE_BUY':
       // falls through
     case 'UPGRADE_ACTIVATE':
-      upgrades = upgrades.map((upg) => {
+      upgrades = upgrades.map((upg, i) => {
         if (upg.id !== action.upg.id) {
           return upg;
         }
@@ -16,7 +16,6 @@ const upgradesReducer = (upgrades = upgradesList, action) => {
       });
 
       break;
-    default:
   }
 
   return upgrades;

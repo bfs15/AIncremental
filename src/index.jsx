@@ -38,7 +38,8 @@ setInterval(() => {
   // let actions = calculatePendingActions(store.getState());
   // actions.forEach(store.dispatch);
 
-  store.dispatch(intelligenceInc(freq * (state.stats.intelligenceCommited / 100)));
+  store.dispatch(
+    intelligenceInc(freq * (state.stats.intelligenceCommited / 100)));
 }, freqMs);
 
 // function calculatePendingActions(state) {

@@ -14,7 +14,6 @@ const upgradeReducer = (upgrade, action) => {
       };
 
       break;
-    default:
   }
 
   return upgrade;
