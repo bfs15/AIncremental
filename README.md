@@ -50,7 +50,7 @@ npm run build
     build/index.html
     ```
 
--   install your favorite react/react dev tools on your browser
+-   install Redux DevTools on your browser
 
 
 ### Using git to manage your changes
