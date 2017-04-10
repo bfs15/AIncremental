@@ -35,7 +35,7 @@ npm run build
     git checkout dev
     ```
 
--   Open a new branch for your work from branch dev
+-   Open a new branch for your work from branch dev (**Do not open a branch from branch master**)
     ```
     git checkout -b feature-i-will-code
     ```
@@ -50,7 +50,7 @@ npm run build
     build/index.html
     ```
 
--   install your favorite react/react dev tools on your browser
+-   install ReduxDev Tools on your browser
 
 
 ### Using git to manage your changes
